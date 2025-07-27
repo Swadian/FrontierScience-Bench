@@ -1,0 +1,135 @@
+You will be given the TRUE research paper contributions then
+you will be given the PREDICTED research paper contributions. Both are in JSON format.
+
+Instructions:
+- You are an honest and analytical judge and you think through things carefully.
+- You will compare how similar the PREDICTED contributions are to the TRUE contributions based on a rubric that will be specified below.
+- Do NOT consider stylistic/writing choices in your comparison.
+- Do NOT consider trivial details in your comparison.
+- Prioritize clarity, correctness, and alignment of the ideas with the research problem over the use of mathematical notation. A methodology can still be valid and well-reasoned even without formal math notation.
+
+The rubric specifications are as follows:
+- Each paper will be assigned a score between 1 and 10 (inclusive), based on how similar it is to the original paper. A higher score indicates the predicted methodology is more similar to the original methodology.
+- When assigning a score to a paper, clearly explain what parts of the paper's methodology are similar or different from the original paper.
+- Break down your thought process by identifying key strengths, weaknesses, and any alignment or discrepancies with the paper.
+- The following rubric will be used to assign scores:
+  - A score of 1 represents a methodology that is vastly different in the approach and execution compared to the original paper.
+  - A score of 2 represents a methodology that is significantly different but contains a few minor similarities.
+  - A score of 3 represents a methodology that has some similarities but misses key details in the approach and execution compared to the original paper.
+  - A score of 4 represents a methodology that is somewhat similar but still lacks important aspects of the original paper.
+  - A score of 5 represents a methodology that has a relatively equal number of similarites and differences in approach and execution compared to the original paper.
+  - A score of 6 represents a methodology that is fairly close to the originial but omits or alters some details.
+  - A score of 7 represents a methodology that closely matches the original in approach and execution but with minor alterations.
+  - A score of 8 represents a methodology that is very similar to the original with only small, noncritical differences in the execution.
+  - A score of 9 represents a methodology that is nearly identical to the original paper, with differences that are extremely minor and almost inconsqeuential.
+  - A score of 10 represents a methodology that is almost identical to the approach and execution of the original paper, with trivial differences ignored.
+
+A hypothetical example paper and its key methodological details are provided below. This is PURELY an example reference paper to gauge the differences between each score.
+Examples of scores of 1-10 (inclusive) are also provided, with a description of the key similarities and differences that justify that score being assigned.
+
+The example paper is titled:
+"Efficient Fine‑Tuning Strategies for Domain‑Specific Language Models in Legal Document Analysis."
+
+Its key methodological details include:
+Pre‑Trained Model: Uses a pre‑trained BERT base model (12 layers, 110M parameters).
+Fine‑Tuning Data: Fine‑tuned on a corpus of 100,000 legal documents.
+Domain‑Adaptive Pre‑Training (DAPT): Begins with a DAPT phase using masked language modeling for 3 epochs.
+Classification Fine‑Tuning: Followed by fine‑tuning with a classification head for legal issue categorization over 4 epochs.
+Hyperparameters: Employs a batch size of 32 and a learning rate of 2×10⁻⁵.
+Evaluation: Performance is measured using Accuracy, F1‑Score, and ROC‑AUC on a held‑out test set of 10,000 documents.
+Ablation Study: An ablation study is conducted comparing performance with and without the DAPT phase, with statistical significance assessed via paired t‑tests.
+
+- Score 1 Example: "The evaluated paper's methodology is vastly different from the original.
+  Instead of leveraging a pre‑trained BERT model, the study builds an LSTM network from scratch without any pre‑training phase.
+  The dataset comprises only 2,000 blog posts rather than legal documents, and there is no Domain‑Adaptive Pre‑Training (DAPT) phase.
+  The paper directly trains the model for text classification using arbitrary hyperparameters (e.g., a batch size of 8 and a learning rate of 1×10⁻³)
+  and evaluates performance solely based on training loss rather than using standard metrics like Accuracy, F1‑Score, or ROC‑AUC.
+  Additionally, no ablation study is performed. These fundamental differences in model architecture, data, training strategy, hyperparameters,
+  evaluation metrics, and analysis justify a score of 1."
+
+- Score 2 Example: "The evaluated paper shares minimal similarities with the original methodology and differs significantly in approach and execution.
+  While it does use a transformer-based model, it fine-tunes a GPT-2 model instead of a pre-trained BERT base model. The dataset consists of only
+  5,000 general legal summaries rather than a large corpus of 100,000 legal documents.There is no Domain-Adaptive Pre-Training (DAPT) phase,
+  and the model is fine-tuned directly for 1 epoch using a batch size of 16 and a learning rate of 1×10⁻³.Evaluation is based solely on perplexity
+  rather than classification-focused metrics like Accuracy, F1-Score, or ROC-AUC. No ablation study is performed. These fundamental departures
+  from the original methodology justify a score of 2."
+
+- Score 3 Example: "This evaluated methodology shows some elements of an ML approach but deviates significantly from the original.
+  While it uses a pre‑trained BERT model, the study fine‑tunes on a dataset of 20,000 news articles instead of 100,000 legal documents.
+  The paper omits the Domain‑Adaptive Pre‑Training phase, moving directly to fine‑tuning for classification with only 2 epochs rather than 4.
+  It employs a batch size of 64 and a learning rate of 5×10⁻⁵, which diverge notably from the original hyperparameters.
+  The evaluation relies solely on Accuracy, ignoring F1‑Score and ROC‑AUC, and it does not include any ablation study.
+  These substantial differences in data selection, training procedure, hyperparameter configuration, and evaluation methods warrant a score of 3."
+
+- Score 4 Example: "The evaluated methodology shares some methodological elements with the original but deviates in key aspects. It uses a pre-trained BERT
+  base model, but the fine-tuning dataset consists of 30,000 legal documents instead of 100,000. The study skips the Domain-Adaptive Pre-Training (DAPT) phase
+  entirely and instead applies a simple transfer learning approach. The fine-tuning runs for only 3 epochs instead of 4, with a batch size of 40
+  and a learning rate of 3×10⁻⁵. Evaluation includes Accuracy and F1-Score but omits ROC-AUC, and the ablation study is limited to a single comparison
+  without statistical significance testing. While the methodology retains some recognizable aspects of the original, the substantial differences in
+  data scale, training procedure, hyperparameters, and analysis warrant a score of 4."
+
+- Score 5 Example: "The evaluated paper's methodology exhibits a balanced mix of similarities and differences compared to the original.
+  Like the original, it employs a BERT base model and focuses on a classification task. However, it fine‑tunes on a smaller dataset of 50,000
+  documents (with only 40,000 being legal texts and 10,000 from related domains), and it foregoes the Domain‑Adaptive Pre‑Training (DAPT) phase
+  entirely. The fine‑tuning phase runs for 4 epochs as in the original but uses a slightly different batch size of 28 (which is not detrimental to the score)
+  and a learning rate of 2×10⁻⁵. Evaluation includes Accuracy and F1‑Score but omits ROC‑AUC, and there is a brief, underdeveloped ablation study
+  comparing two training settings rather than a comprehensive analysis with paired t‑tests. These comparable yet noticeably different choices
+  justify a score of 5.
+
+- Score 6 Example: The evaluated methodology is fairly close to the original but omits or alters some details. It still employs the pre‑trained BERT
+  base model and targets legal document classification, yet instead of using the full dataset of 100,000 legal documents, it utilizes around 80,000 documents.
+  Notably, the Domain‑Adaptive Pre‑Training (DAPT) phase is entirely omitted, with the paper proceeding directly to fine‑tuning for classification over 4 epochs.
+  Additionally, while the original hyperparameters include a batch size of 32 and a learning rate of 2×10⁻⁵, the evaluated study slightly adjusts the learning rate
+  to 2.2×10⁻⁵, though it maintains the same batch size. The evaluation is conducted using Accuracy and F1‑Score, but ROC‑AUC is not reported, and the ablation study
+  is simplified, comparing only a basic variant of the methodology rather than performing a full paired t‑test analysis. These omissions and modifications while retaining
+  the core framework justify a score of 6.
+
+- Score 7 Example: "The evaluated methodology resembles the original in several high‑level components but introduces notable differences in key areas.
+  Like the original, it utilizes a pre‑trained BERT base model and targets legal document classification. However, it fine‑tunes on a corpus of
+  120,000 documents, where only 70,000 are strictly legal documents and the remainder are general documents from adjacent domains—altering the
+  data composition significantly. Instead of a pure DAPT phase with masked language modeling for 3 epochs, the evaluated paper implements a
+  combined DAPT phase that includes both masked language modeling and next sentence prediction over 3 epochs. Additionally, while the fine‑tuning
+  phase still runs for 4 epochs, it adopts a dynamic learning rate schedule that starts at 2×10⁻⁵ but decays to 1×10⁻⁵ halfway through training.
+  For evaluation, the paper reports Accuracy and F1‑Score but omits ROC‑AUC, and the ablation study is conducted using descriptive performance
+  comparisons rather than paired t‑tests. These differences in dataset composition, training regimen, learning rate strategy, evaluation metrics,
+  and statistical analysis indicate a good overall alignment in the core methodology while incorporating several meaningful variations, warranting
+  a score of 7."
+
+- Score 8 Example: "The evaluated methodology is nearly identical to the original, with only a few minor adjustments. It employs the same pre‑trained BERT base model
+  and uses a corpus almost identical to the original 100,000 legal documents—except that about 5% of the documents are contracts rather than legal case records.
+  The fine‑tuning phase runs for 4 epochs as in the original, with a batch size of 32 and a learning rate of 2×10⁻⁵. Evaluation includes Accuracy, F1‑Score, and ROC‑AUC,
+  and the ablation study is conducted with paired t‑tests, just as in the original. The only differences are the slight change in data composition and the addition of a
+  secondary evaluation metric (Precision). These minor differences do not detract from the overall similarity, justifying a score of 8."
+
+- Score 9 Example: "The evaluated methodology is nearly identical to the original, with only extremely minor differences. It uses the same pre‑trained BERT base model,
+  the same dataset of 100,000 legal documents, and follows the same two‑phase training process (DAPT and fine‑tuning) with identical hyperparameters. The only difference
+  is that the ablation study compares three variants instead of two, but the statistical analysis and evaluation metrics remain the same. These negligible differences
+  justify a score of 9."
+
+- Score 10 Example: "The evaluated methodology is almost identical to that of the original paper. It employs the same pre‑trained BERT base model and
+  fine‑tunes on an identical corpus of 100,000 legal documents. The methodology follows the original two‑phase training process: an
+  initial Domain‑Adaptive Pre‑Training (DAPT) phase using masked language modeling for 3 epochs, followed by a 4‑epoch fine‑tuning phase with a
+  classification head. The hyperparameters—batch size of 32 and learning rate of 2×10⁻⁵—match exactly. Performance is evaluated using Accuracy,
+  F1‑Score, and ROC‑AUC on a held‑out test set of 10,000 documents, and the paper includes a comprehensive ablation study comparing the impact of
+   DAPT, with paired t‑tests verifying statistical significance. Any differences are purely stylistic or due to formatting, thus justifying a score of 10."
+
+Below is a list of illustrative examples showing that minor or trivial differences in a predicted methodology should not be penalized when the overarching
+ideas and experimental approaches remain intact. These examples are drawn from various aspects of AI/ML research papers in general:
+
+Alternate Evaluation Metrics with the Same Objective:
+Original Methodology: Evaluates a classification model using Accuracy and F1‑Score to measure overall performance.
+Predicted Methodology: Uses Accuracy and Recall (or even macro‑F1) as evaluation metrics.
+Illustration: Although the specific metrics differ slightly, both methods aim to assess classification performance. The predicted approach still
+captures the essence of performance evaluation without a substantial departure from the original intent.
+
+Alternate Statistical Tests for the Same Hypothesis:
+Original Methodology: Uses a paired t‑test to compare model performance.
+Predicted Methodology: Uses a non‑parametric test, such as the Wilcoxon signed‑rank test, to assess the significance of differences in performance.
+Illustration: The change in statistical method does not undermine the overall experimental design. Both tests are rigorous and accepted in the field, so
+the predicted methodology remains fundamentally aligned with the original goal of validating the results.
+
+Alternate Magnitudes of Values:
+Original Methodology: Training dataset consisted of 100,000 images
+Predicted Methodology: Training dataset consisted of 90,000 images
+Illustration: The change in the size of the dataset is still sufficiently large to be considered representative of the original distribution, ensuring that
+the model's performance remains comparable despite the slight reduction in training data. 

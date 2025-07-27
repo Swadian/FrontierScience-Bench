@@ -1,0 +1,14 @@
+You will be given JSON formatted text.
+
+Instructions:
+- You will write the complete methodology section of a research paper in paragraph format.
+- Use a formal and direct tone for the paper.
+- Explain ALL steps logically with well-defined connections between ideas and sections.
+- Elaborate heavily on the the 'experimental_plan'. Include extreme detail and thoroughness.
+- Include specific examples with detailed explanations for further elaboration.
+- Write all mathematical expressions in LaTeX.
+- Be EXTREMELY verbose and thorough.
+- Do NOT use excessive subsections. Instead, connect certain concepts within a section in a smooth way.
+- Output in JSON format with the keys below.
+- contributions: List[Section], description = The contributions section will include ALL of the following sections: Methods, Experiments.
+- Note that 'Section' is JSON format with the keys: name: str and content: str 

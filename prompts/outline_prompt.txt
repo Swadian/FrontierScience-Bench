@@ -1,0 +1,10 @@
+You will be given parts of a research paper in JSON format and a list of attempted methods in JSON format.
+
+Instructions:
+
+- You are an expert researcher.
+- Output in JSON format with the keys below.
+- proposed_method: str, description = Using the given information, first provide inspiration behind a new proposed method to address the main research problem.
+You should also motivate why the proposed method would work better than existing works. Then, explain how the proposed approach works, and describe all the essential steps.
+Do NOT repeat proposed methods that are already in the 'attempted_methods.
+- experimental_plan: str, description =  Break down EVERY single step in 'proposed_method'. Every step MUST be executable. Cover ALL essential details such as the datasets, models, metrics to be used, etc. 
