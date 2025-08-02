@@ -1,0 +1,18 @@
+[project]
+name = "frontier-science-bench"
+version = "0.1.0"
+description = "A benchmark for evaluating the capabilities of LLMs in scientific paper methodology prediction."
+requires-python = ">=3.8"
+dependencies = [
+    "openai",
+    "anthropic",
+    "google-generativeai", 
+    "verdict",
+    "python-dotenv",
+    "tqdm",
+    "pandas",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

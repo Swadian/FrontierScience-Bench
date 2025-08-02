@@ -63,6 +63,84 @@ This benchmark is designed as a diagnostic tool to assess the reasoning capabili
 
 ## Setup Instructions
 
+### Prerequisites
+
+- Python 3.8 or higher
+- `uv` package manager
+
+### Installation
+
+1. **Install `uv`** (if not already installed):
+   ```bash
+   pip install uv
+   # or
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+2. **Clone the repository**:
+   ```bash
+   git clone <your-repo-url>
+   cd FrontierScience-Bench
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   uv sync
+   ```
+
+4. **Set up environment variables**:
+   Create a `.env` file in the project root:
+   ```bash
+   # Create .env file
+   touch .env
+   ```
+   
+   Add your API keys to `.env`:
+   ```
+   OPENAI_API_KEY= "your-openai-api-key-here"
+   ANTHROPIC_API_KEY= "your-anthropic-api-key-here"
+   GEMINI_API_KEY= "your-gemini-api-key-here"
+   GROK_API_KEY= "your-grok-api-key-here"
+   ```
+
+5. **Run the evaluation**:
+   ```bash
+   uv run python maini.py
+   ```
+
+### API Keys Setup
+
+To use this benchmark, you'll need API keys for the LLM providers:
+
+- **OpenAI**: Get your API key from [OpenAI Platform](https://platform.openai.com/api-keys)
+- **Anthropic**: Get your API key from [Anthropic Console](https://console.anthropic.com/)
+- **Google Gemini**: Get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+- **GROK**: Get your API key from [x.ai](https://x.ai/)
+
+### Data Files
+
+The benchmark uses the following data files (included in the repository):
+
+- `data/ground_truth.pkl` - Parsed papers split into various sections
+- `data/redacted_papers.pkl` - Papers with methodology sections removed
+- `prompts/` - Prompts for creating methodology predictions and LLM-as-a-judge prediction pipeline
+
+### Troubleshooting
+
+**Common Issues:**
+
+1. **Import errors**: Make sure you've run `uv sync` or `pip install -r requirements.txt`
+2. **API key errors**: Verify your `.env` file exists and contains valid API keys
+3. **Permission errors**: Ensure you have write permissions in the project directory
+
+**Getting Help:**
+
+If you encounter issues, please:
+1. Check that all dependencies are installed correctly
+2. Verify your API keys are valid and have sufficient credits
+3. Ensure you're using Python 3.8 or higher
+4. Check the console output for specific error messages
+
 ## BibTex
 
 If you use this benchmark or codebase, please cite:
@@ -78,12 +156,26 @@ If you use this benchmark or codebase, please cite:
         }
 ```
 ### Verdict
-
 ```bibtex
-@article{kalra2025verdict,
+@software{kalra2025verdict,
   title={Verdict: A Library for Scaling Judge-Time Compute},
-  author={Nimit Kalra and Leonard Tang},
-  journal={arXiv preprint arXiv:2502.18018},
-  year={2025}
+  author={Kalra, Nimit and Tang, Leonard},
+  year={2025},
+  url={https://github.com/verdict-ai/verdict},
+  note={Python library for LLM evaluation and judging},
+  howpublished={Software package},
+  publisher={Verdict AI}
+}
+```
+### PyMuPDF
+```bibtex
+@software{pymupdf2024,
+  title={PyMuPDF: Python bindings for MuPDF},
+  author={Artifex Software, Inc.},
+  year={2024},
+  url={https://pymupdf.readthedocs.io/},
+  note={Version 1.23.0},
+  howpublished={Python package},
+  publisher={Artifex Software, Inc.}
 }
 ```
