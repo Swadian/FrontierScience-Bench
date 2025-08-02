@@ -2,7 +2,7 @@
 
 This repository accompanies the research paper “FrontierScience Bench: Evaluating AI Research Capabilities in LLMs,” accepted to the First Workshop for Research on Agent Language Models (REALM) at ACL 2025. The codebase provides all resources, data, and evaluation tools described in our paper, which explores the scientific reasoning capabilities of large language models. For more information about the REALM workshop, visit https://realm-workshop.github.io/.
 
-The full paper can be found at <Arxiv Here>
+The full paper can be found at https://aclanthology.org/2025.realm-1.31/
 
 ## Table of Contents
 - [Abstract](#abstract)
