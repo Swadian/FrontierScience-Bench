@@ -12,7 +12,7 @@ The full paper can be found at https://aclanthology.org/2025.realm-1.31/
 - [Ethics](#ethics)
 - [Setup Instructions](#setup-instructions)
 - [BibTex](#bibtex)
-  - [Verdict](#verdict)
+- [Additional Scripts](#additional-scripts)
 
 ## Abstract
 
@@ -29,7 +29,7 @@ The benchmark consists of three stages:
 
 Our paper curation process is detailed in the figure below.
 
-![](images/Redaction_Pipeline.png)
+![](images/Paper_Curation.png)
 
 ## Redaction Pipeline
 
@@ -105,7 +105,7 @@ This benchmark is designed as a diagnostic tool to assess the reasoning capabili
 
 5. **Run the evaluation**:
    ```bash
-   uv run python maini.py
+   uv run python main.py
    ```
 
 ### API Keys Setup
@@ -149,7 +149,7 @@ If you use this benchmark or codebase, please cite:
   @inproceedings{horwitz2024recovering,
           title={FrontierScience Bench: Evaluating AI Research Capabilities in LLMs},
           author={Matthew Li*, Santiago Torres-Garcia*, Shayan Halder, 
-                Phani Kuppa, Vasu Sharma, Sean O'Brien, Kevin Zhu, Sunischal Dev},
+                Phani Kuppa, Vasu Sharma, Sean O'Brien, Kevin Zhu, Sunishchal Dev},
           booktitle={ACL REALM},
           year={2025},
           organization={Algoverse AI Research}

@@ -1,0 +1,3 @@
+- Output in JSON format with the keys below.
+- proposed_method: str, description = Using the given information, first provide inspiration behind a new proposed method to address the main research problem.
+- experimental_plan: str, description = Break down EVERY single step in 'proposed_method'. Every step MUST be executable. Cover ALL essential details such as the datasets, models, metrics to be used, etc. 
