@@ -2,16 +2,20 @@
 name = "frontier-science-bench"
 version = "0.1.0"
 description = "A benchmark for evaluating the capabilities of LLMs in scientific paper methodology prediction."
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
     "openai",
     "anthropic",
-    "google-generativeai", 
+    "google-generativeai",
     "verdict",
     "python-dotenv",
     "tqdm",
     "pandas",
+    "pydantic",
 ]
+
+[tool.uv]
+package = false
 
 [build-system]
 requires = ["hatchling"]

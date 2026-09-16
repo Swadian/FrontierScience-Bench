@@ -179,3 +179,12 @@ If you use this benchmark or codebase, please cite:
   publisher={Artifex Software, Inc.}
 }
 ```
+
+### Extra Scripts
+
+The scripts/ directory contains supplementary utilities used during dataset construction, evaluation, and analysis. These scripts are not required to run the main benchmark, but are provided to facilitate reproduction and further experimentation.
+
+The scripts include utilities for:
+- DATASET CREATION: fetching and organizing relevant research papers via SemanticScholar API
+- PAPER PROCESSING: diff checker script for analyzing differences between ground truth and redacted versions
+- ANAlYSIS: generating statistics and figures used to analyze benchmark performance.
